@@ -9,7 +9,7 @@ const PostCreator = () => {
   return (
     <>
       <Box className="bg-white w-[95%] sm:w-[80%] h-32 rounded-lg shadow-md">
-        <Box className="flex w-full h-[49%] justify-center items-center gap-2">
+        <Box className="flex w-full h-[49%] justify-center items-center gap-2 px-2 sm:px-0">
           <UserProfilePlaceholder h="63%" w="2.5rem" iconHeight="2rem" />
           <input
             placeholder="Whats's on your mind"
@@ -24,7 +24,7 @@ const PostCreator = () => {
             <MenuItemWrapper className="justify-center">
               <Box>{items?.icon}</Box>
               {matchesXs && <Box>{items?.name}</Box>}
-            </MenuItemWrapper>
+            </MenuItemWrapper>  
           ))}
         </Box>
       </Box>

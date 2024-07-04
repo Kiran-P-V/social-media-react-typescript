@@ -211,17 +211,17 @@ const menuItems = {
     {
       id: 1,
       name: "Live video",
-      icon: <img src={LiveVideoIcon} className="h-5 min-w-fit" />,
+      icon: <img src={LiveVideoIcon} className="h-[1.5rem]" />,
     },
     {
       id: 2,
       name: "Photo/video",
-      icon: <img src={PhotoOrVideoIcon} className="h-6 min-w-fit" />,
+      icon: <img src={PhotoOrVideoIcon} className="h-[1.5rem]" />,
     },
     {
       id: 3,
       name: "Feeling/activity",
-      icon: <img src={FeelingOrActivityIcon} className="h-5 min-w-fit" />,
+      icon: <img src={FeelingOrActivityIcon} className="h-[1.5rem]" />,
     },
   ],
   messengerItems: [
