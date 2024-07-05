@@ -15,8 +15,8 @@ const RightMenu = () => {
             <MoreHorizRoundedIcon className="cursor-pointer" fontSize="small" />
           </Box>
         </p>
-        {menuItems?.rightMenuProfileAndPagesItems?.map((items) => (
-          <MenuItemWrapper>
+        {menuItems?.rightMenuProfileAndPagesItems?.map((items, index) => (
+          <MenuItemWrapper key={index}>
             <Box className="">{items?.icon}</Box>
             <Box className="">{items?.name}</Box>
           </MenuItemWrapper>
@@ -27,8 +27,8 @@ const RightMenu = () => {
         <p className="font-semibold text-lg text-gray-500 mx-3 flex justify-between items-center">
           Birthdays
         </p>
-        {menuItems?.rightMenuBirthdayItems?.map((items) => (
-          <MenuItemWrapper>
+        {menuItems?.rightMenuBirthdayItems?.map((items, index) => (
+          <MenuItemWrapper key={index}>
             <Box className="">{items?.icon}</Box>
             <Box className="">{items?.name}</Box>
           </MenuItemWrapper>
@@ -50,8 +50,8 @@ const RightMenu = () => {
             </Box>
           </Box>
         </p>
-        {menuItems?.rightMenuContactItems?.map((items) => (
-          <MenuItemWrapper>
+        {menuItems?.rightMenuContactItems?.map((items, index) => (
+          <MenuItemWrapper key={index}>
             <Box className="">
               <UserProfilePlaceholder
                 online

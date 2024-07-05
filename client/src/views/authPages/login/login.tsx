@@ -9,7 +9,7 @@ const Login = () => {
         <div className="bg-slate-100 h-screen flex flex-col md:flex-row w-[80%]">
           <section className="w-full flex justify-center items-center">
             <div className="flex flex-col gap-2">
-              <img className="w-48" src={facebookLogo} />
+              <img alt="App logo" className="w-48" src={facebookLogo} />
               <p className="text-4xl">Recent Logins</p>
               <p className="text-gray-400 text-sm font-medium">
                 Click your picture or add an account.

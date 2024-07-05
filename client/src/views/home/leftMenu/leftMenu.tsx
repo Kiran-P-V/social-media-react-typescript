@@ -10,8 +10,8 @@ const LeftMenu = () => {
   return (
     <>
       <Box className="pt-2 pl-2 font-medium ">
-        {menuItems?.leftMenuMainItems?.map((items) => (
-          <MenuItemWrapper>
+        {menuItems?.leftMenuMainItems?.map((items, index) => (
+          <MenuItemWrapper key={index}>
             <Box>{items?.icon}</Box>
             <Box>{items?.name}</Box>
           </MenuItemWrapper>
@@ -26,8 +26,8 @@ const LeftMenu = () => {
           </MenuItemWrapper>
         )}
         <Collapse in={expanded} timeout={300}>
-          {menuItems?.leftMenuCollapseItems?.map((items) => (
-            <MenuItemWrapper>
+          {menuItems?.leftMenuCollapseItems?.map((items, index) => (
+            <MenuItemWrapper key={index}>
               <Box>{items?.icon}</Box>
               <Box>{items?.name}</Box>
             </MenuItemWrapper>
@@ -50,8 +50,8 @@ const LeftMenu = () => {
         <p className="font-semibold text-lg text-gray-500 mx-3">
           Your shortcuts
         </p>
-        {menuItems?.leftMenuShortcutItems?.map((items) => (
-          <MenuItemWrapper>
+        {menuItems?.leftMenuShortcutItems?.map((items, index) => (
+          <MenuItemWrapper key={index}>
             <Box>{items?.icon}</Box>
             <Box>{items?.name}</Box>
           </MenuItemWrapper>

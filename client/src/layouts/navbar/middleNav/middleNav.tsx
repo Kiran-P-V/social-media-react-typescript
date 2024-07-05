@@ -9,6 +9,7 @@ const MiddleNav = () => {
       <Box className=" w-full flex items-center justify-around gap-1 px-1">
         {mappingData?.menuItems?.map((item, index) => (
           <Box
+            key={index}
             onClick={() => setSelected(item?.id)}
             className={`transition ease-in-out delay-150 w-[90%] h-full flex items-center justify-center ${
               item?.id === selected

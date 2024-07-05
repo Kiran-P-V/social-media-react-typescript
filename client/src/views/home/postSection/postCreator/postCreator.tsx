@@ -20,11 +20,11 @@ const PostCreator = () => {
           <Divider />
         </Box>
         <Box className="w-full h-[49%] flex justify-around items-center">
-          {menuItems?.middlePostCreatorItems?.map((items) => (
-            <MenuItemWrapper className="justify-center">
+          {menuItems?.middlePostCreatorItems?.map((items, index) => (
+            <MenuItemWrapper key={index} className="justify-center">
               <Box>{items?.icon}</Box>
               {matchesXs && <Box>{items?.name}</Box>}
-            </MenuItemWrapper>  
+            </MenuItemWrapper>
           ))}
         </Box>
       </Box>

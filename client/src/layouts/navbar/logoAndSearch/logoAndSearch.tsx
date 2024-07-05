@@ -12,6 +12,7 @@ const LogoAndSearch = () => {
           onClick={() => navigate("/")}
           className="w-10 h-10 cursor-pointer"
           src={Logo}
+          alt="Main logo"
         />
         <input
           placeholder="Search Facebook"

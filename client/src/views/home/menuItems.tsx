@@ -34,94 +34,94 @@ const menuItems = {
     {
       id: 2,
       name: "Friends",
-      icon: <img src={FriendsIcon} className="h-6" />,
+      icon: <img alt="icon" src={FriendsIcon} className="h-6" />,
     },
     {
       id: 3,
       name: "Memories",
-      icon: <img src={MemoriesIcon} className="h-6" />,
+      icon: <img alt="icon" src={MemoriesIcon} className="h-6" />,
     },
     {
       id: 4,
       name: "Saved",
-      icon: <img src={SavedIcon} className="h-6" />,
+      icon: <img alt="icon" src={SavedIcon} className="h-6" />,
     },
     {
       id: 5,
       name: "Groups",
-      icon: <img src={GroupsIcon} className="h-6" />,
+      icon: <img alt="icon" src={GroupsIcon} className="h-6" />,
     },
     {
       id: 6,
       name: "Marketplace",
-      icon: <img src={MarketplaceIcon} className="h-6" />,
+      icon: <img alt="icon" src={MarketplaceIcon} className="h-6" />,
     },
     {
       id: 7,
       name: "Feeds",
-      icon: <img src={FeedsIcon} className="h-6" />,
+      icon: <img alt="icon" src={FeedsIcon} className="h-6" />,
     },
     {
       id: 8,
       name: "Video",
-      icon: <img src={VideoIcon} className="h-6" />,
+      icon: <img alt="icon" src={VideoIcon} className="h-6" />,
     },
   ],
   leftMenuCollapseItems: [
     {
       id: 1,
       name: "Ads Manager",
-      icon: <img src={AdManagerIcon} className="h-6" />,
+      icon: <img alt="icon" src={AdManagerIcon} className="h-6" />,
     },
     {
       id: 2,
       name: "Climate Science Center",
-      icon: <img src={ClimateScienceCenter} className="h-6" />,
+      icon: <img alt="icon" src={ClimateScienceCenter} className="h-6" />,
     },
     {
       id: 3,
       name: "Events",
-      icon: <img src={EventsIcon} className="h-6" />,
+      icon: <img alt="icon" src={EventsIcon} className="h-6" />,
     },
     {
       id: 4,
       name: "Facebook Pay",
-      icon: <img src={FacebookPayIcon} className="h-6" />,
+      icon: <img alt="icon" src={FacebookPayIcon} className="h-6" />,
     },
     {
       id: 5,
       name: "Fundraisers",
-      icon: <img src={FundraisersIcon} className="h-6" />,
+      icon: <img alt="icon" src={FundraisersIcon} className="h-6" />,
     },
     {
       id: 6,
       name: "Gaming Video",
-      icon: <img src={GamingVideoIcon} className="h-6" />,
+      icon: <img alt="icon" src={GamingVideoIcon} className="h-6" />,
     },
     {
       id: 7,
       name: "Messenger",
-      icon: <img src={MessengerIcon} className="h-6" />,
+      icon: <img alt="icon" src={MessengerIcon} className="h-6" />,
     },
     {
       id: 8,
       name: "Messenger Kids",
-      icon: <img src={MessengerKidsIcon} className="h-6" />,
+      icon: <img alt="icon" src={MessengerKidsIcon} className="h-6" />,
     },
     {
       id: 9,
       name: "Pages",
-      icon: <img src={PagesIcon} className="h-6" />,
+      icon: <img alt="icon" src={PagesIcon} className="h-6" />,
     },
     {
       id: 10,
       name: "Play Games",
-      icon: <img src={PlayGamesIcon} className="h-6" />,
+      icon: <img alt="icon" src={PlayGamesIcon} className="h-6" />,
     },
     {
       id: 11,
       name: "Recent Ad activity",
-      icon: <img src={RecentAdActivityIcon} className="h-6" />,
+      icon: <img alt="icon" src={RecentAdActivityIcon} className="h-6" />,
     },
   ],
   leftMenuShortcutItems: [
@@ -152,7 +152,7 @@ const menuItems = {
     {
       id: 1,
       name: "Eli Cole is Celebrating their birthday",
-      icon: <img src={GiftIcon} className="h-6" />,
+      icon: <img alt="icon" src={GiftIcon} className="h-6" />,
     },
   ],
   rightMenuContactItems: [
@@ -211,17 +211,19 @@ const menuItems = {
     {
       id: 1,
       name: "Live video",
-      icon: <img src={LiveVideoIcon} className="h-[1.5rem]" />,
+      icon: <img alt="icon" src={LiveVideoIcon} className="h-[1.5rem]" />,
     },
     {
       id: 2,
       name: "Photo/video",
-      icon: <img src={PhotoOrVideoIcon} className="h-[1.5rem]" />,
+      icon: <img alt="icon" src={PhotoOrVideoIcon} className="h-[1.5rem]" />,
     },
     {
       id: 3,
       name: "Feeling/activity",
-      icon: <img src={FeelingOrActivityIcon} className="h-[1.5rem]" />,
+      icon: (
+        <img alt="icon" src={FeelingOrActivityIcon} className="h-[1.5rem]" />
+      ),
     },
   ],
   messengerItems: [

@@ -30,7 +30,7 @@ const PostCard = () => {
           <p className="font-medium">In Cinemas Worldwide On May 23 , 2024</p>
         </Box>
         <Box>
-          <img className="w-full" src={MammmoottyTurboImage} />
+          <img alt="Post image" className="w-full" src={MammmoottyTurboImage} />
         </Box>
         <Box className="p-2 flex justify-between px-4">
           <Box className="flex gap-1 w-[80%]">
@@ -53,11 +53,19 @@ const PostCard = () => {
           <Box className="flex justify-around w-[20%] items-center gap-2">
             <Box className="flex items-center gap-1">
               <p className="font-light">10K</p>
-              <img src={MiniCommentIcon} className="max-w-4 max-h-4" />
+              <img
+                alt="icon"
+                src={MiniCommentIcon}
+                className="max-w-4 max-h-4"
+              />
             </Box>
             <Box className="flex items-center gap-1">
               <p className="font-light">10K</p>
-              <img src={MiniForwardIcon} className="max-w-4 max-h-4" />
+              <img
+                alt="icon"
+                src={MiniForwardIcon}
+                className="max-w-4 max-h-4"
+              />
             </Box>
           </Box>
         </Box>
@@ -66,15 +74,15 @@ const PostCard = () => {
         </Box>
         <Box className="flex justify-around p-2 gap-2">
           <MenuItemWrapper className="flex justify-center h-[2rem]">
-            <img src={LikeIcon} className="h-7 w-7" />
+            <img alt="icon" src={LikeIcon} className="h-7 w-7" />
             <Box>Like</Box>
           </MenuItemWrapper>
           <MenuItemWrapper className="flex justify-center h-[2rem]">
-            <img src={CommentIcon} className="h-6 w-6" />
+            <img alt="icon" src={CommentIcon} className="h-6 w-6" />
             <Box>Comment</Box>
           </MenuItemWrapper>
           <MenuItemWrapper className="flex justify-center h-[2rem]">
-            <img src={ForwardIcon} className="h-6 w-6" />
+            <img alt="icon" src={ForwardIcon} className="h-6 w-6" />
             <Box>Share</Box>
           </MenuItemWrapper>
         </Box>
