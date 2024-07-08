@@ -1,5 +1,4 @@
 import Popover from "@mui/material/Popover";
-import Typography from "@mui/material/Typography";
 
 type popupProps = {
   id: string | undefined;
