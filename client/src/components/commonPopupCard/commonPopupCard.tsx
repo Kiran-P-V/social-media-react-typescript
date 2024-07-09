@@ -1,6 +1,6 @@
 import Popover from "@mui/material/Popover";
 
-type popupProps = {
+type PopupProps = {
   id: string | undefined;
   anchorEl: any;
   handleClose: any;
@@ -12,28 +12,23 @@ const CommonPopupCard = ({
   anchorEl,
   handleClose,
   children,
-}: popupProps) => {
+}: PopupProps) => {
   const open = Boolean(anchorEl);
 
   return (
-    <>
-      <Popover
-        className="mt-1 "
-        anchorPosition={{ left: 20, top: 20 }}
-        id={id}
-        open={open}
-        anchorEl={anchorEl}
-        onClose={handleClose}
-        anchorOrigin={{
-          vertical: "bottom",
-          horizontal: "left",
-        }}
-      >
-        <div className="p-1">
-          {children ? children : "The content of the Popover."}
-        </div>
-      </Popover>
-    </>
+    <Popover
+      className="mt-1"
+      id={id}
+      open={open}
+      anchorEl={anchorEl}
+      onClose={handleClose}
+      anchorOrigin={{
+        vertical: "bottom",
+        horizontal: "left",
+      }}
+    >
+      <div className="p-1">{children || "The content of the Popover."}</div>
+    </Popover>
   );
 };
 

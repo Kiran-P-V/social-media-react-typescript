@@ -4,9 +4,17 @@ import { useNavigate } from "react-router-dom";
 import MoreHorizRoundedIcon from "@mui/icons-material/MoreHorizRounded";
 import AllOutRoundedIcon from "@mui/icons-material/AllOutRounded";
 import MapsUgcRoundedIcon from "@mui/icons-material/MapsUgcRounded";
+import { closePopup } from "../../../../app/slices/popupSlice";
+import { useDispatch } from "react-redux";
 
 const ChatHead = () => {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+
+  const handleClick = () => {
+    navigate("/messenger");
+    dispatch(closePopup());
+  };
   return (
     <>
       <Box className="flex justify-around p-3">
@@ -20,7 +28,7 @@ const ChatHead = () => {
               fontSize="small"
             />
           </MiniButtonWrapper>
-          <MiniButtonWrapper onClick={() => navigate("/messenger")}>
+          <MiniButtonWrapper onClick={handleClick}>
             <AllOutRoundedIcon
               className="cursor-pointer text-gray-500"
               fontSize="small"
