@@ -18,12 +18,7 @@ const Chat = () => {
           improvements. That's awesome. I think our users will really appreciate
           the improvements."
       />
-      <ChatBubble
-        position="end"
-        description="  That's awesome. I think our users will really appreciate the
-          improvements. That's awesome. I think our users will really appreciate
-          the improvements."
-      />
+      <ChatBubble position="end" description="  That's awesome. " />
       <ChatBubble
         position="start"
         description=" That's awesome. I think our users will really appreciate the

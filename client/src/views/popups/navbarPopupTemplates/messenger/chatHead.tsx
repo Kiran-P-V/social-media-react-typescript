@@ -11,8 +11,8 @@ const ChatHead = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
-  const handleClick = () => {
-    navigate("/messenger");
+  const handleClick = (url: string) => {
+    navigate(url);
     dispatch(closePopup());
   };
   return (
@@ -28,7 +28,7 @@ const ChatHead = () => {
               fontSize="small"
             />
           </MiniButtonWrapper>
-          <MiniButtonWrapper onClick={handleClick}>
+          <MiniButtonWrapper onClick={() => handleClick("/messenger")}>
             <AllOutRoundedIcon
               className="cursor-pointer text-gray-500"
               fontSize="small"

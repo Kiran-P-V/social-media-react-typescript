@@ -12,7 +12,7 @@ const ChatBubble = ({
 }: chatBubbleType) => {
   const chatStart = (
     <div className="flex flex-col items-end p-1">
-      <a className="bg-[#0084FF] rounded-2xl max-w-[50%] py-1 px-2 text-white text-sm">
+      <a className="bg-[#0084FF] rounded-2xl max-w-[50%] py-2 px-2 text-white text-sm">
         {description}
       </a>
     </div>
@@ -27,7 +27,7 @@ const ChatBubble = ({
           w="2rem"
           iconHeight="2rem"
         />
-        <a className="bg-[#F0F0F0] rounded-2xl max-w-[50%] py-1 px-2 text-black text-sm">
+        <a className="bg-[#F0F0F0] rounded-2xl max-w-[50%] py-2 px-2 text-black text-sm">
           {description}
         </a>
       </div>
