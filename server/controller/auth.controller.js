@@ -5,8 +5,9 @@ import generateTokenAndSetCookie from "../utils/generateToken.js";
 
 export const login = async (req, res) => {
   try {
-    const { userName, password } = req.body;
-    const user = await User.findOne({ userName });
+    const { email, password } = req.body;
+    const user = await User.findOne({ email });
+    console.log(user);
     const isPasswordCorrect = await bcryptjs.compare(
       password,
       user?.password || ""
@@ -20,8 +21,8 @@ export const login = async (req, res) => {
 
     res.status(200).json({
       _id: user._id,
-      fullName: user.fullName,
-      userName: user.userName,
+      firstName: user.firstName,
+      surName: user.surName,
       profilePic: user.profilePic,
     });
   } catch (error) {
@@ -32,28 +33,36 @@ export const login = async (req, res) => {
 
 export const signup = async (req, res) => {
   try {
-    const { fullName, userName, password, gender, profilePic } = req.body;
-    const userExist = await User.findOne({ userName });
+    const { firstName, surName, email, password, dateOfBirth, gender } =
+      req.body;
+
+    const userExist = await User.findOne({ email });
     if (userExist) {
-      return res.status(400).json({ error: "Username already exist" });
+      return res.status(400).json({ error: "Email already exists" });
     }
 
     // PASSWORD HASHING
     const salt = await bcryptjs.genSalt(10);
     const hashedPassword = await bcryptjs.hash(password, salt);
+
     const newUser = new User({
-      fullName,
-      userName,
+      firstName,
+      surName,
+      email,
+      dateOfBirth,
       password: hashedPassword,
       gender,
-      profilePic: randomProfilePicGenerator(userName, gender),
+      profilePic: randomProfilePicGenerator(firstName, gender),
     });
+
     if (hashedPassword && newUser) {
-      generateTokenAndSetCookie(newUser._id, res);
       await newUser.save();
+      generateTokenAndSetCookie(newUser._id, res);
       res.status(200).json({
         _id: newUser._id,
-        fullName: newUser.fullName,
+        firstName: newUser.firstName,
+        surName: newUser.surName,
+        email: newUser.email,
         profilePic: newUser.profilePic,
       });
     } else {
@@ -64,7 +73,6 @@ export const signup = async (req, res) => {
     res.status(500).json({ error: "Internal server error" });
   }
 };
-
 export const logout = (req, res) => {
   try {
     res.cookie("jwt", "", { maxAge: 0 });

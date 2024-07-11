@@ -1,9 +1,9 @@
 import User from "../models/user.model.js";
 
 export const getAllUsers = async (req, res) => {
-  console.log("hellloo");
   try {
     const loggedInUser = req.user._id;
+    console.log(loggedInUser);
     const filteredUser = await User.find({ _id: { $ne: loggedInUser } }).select(
       "-password"
     );
