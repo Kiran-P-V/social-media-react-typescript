@@ -2,11 +2,14 @@ import { Link } from "react-router-dom";
 import facebookLogo from "../../../assets/logos/Facebook-Logo-2019.png";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
+import { useMutation } from "@tanstack/react-query";
+import { postRequest } from "../../../api/axios";
+import { authEndpoints } from "../../../utils/endPoints";
 
 // Form values type
 interface FormValues {
   firstName: string;
-  surname: string;
+  surName: string;
   email: string;
   password: string;
   day: string;
@@ -51,7 +54,7 @@ const years = Array.from({ length: 100 }, (_, i) => currentYear - i);
 // Validation Schema
 const validationSchema = Yup.object({
   firstName: Yup.string().required("First name is required"),
-  surname: Yup.string().required("Surname is required"),
+  surName: Yup.string().required("Surname is required"),
   email: Yup.string()
     .email("Invalid email address")
     .required("Email is required"),
@@ -66,7 +69,7 @@ const validationSchema = Yup.object({
 
 const initialValues = {
   firstName: "",
-  surname: "",
+  surName: "",
   email: "",
   password: "",
   day: "",
@@ -110,7 +113,21 @@ const Signin = () => {
   const handleSubmit = (values: {}) => {
     console.log(values);
     // Handle form submission
+    mutation.mutate(values);
   };
+
+  const mutation = useMutation({
+    mutationFn: (values: any) => {
+      console.log(values);
+      const { day, month, year, ...rest } = values;
+
+      const updatedValues = {
+        dateOfBirth: `${day}/${month}/${year}`,
+        ...rest,
+      };
+      return postRequest(authEndpoints.userSignIn, updatedValues);
+    },
+  });
 
   return (
     <div className="flex justify-center">
@@ -133,7 +150,7 @@ const Signin = () => {
                     type="text"
                     placeholder="First name"
                   />
-                  <TextField name="surname" type="text" placeholder="Surname" />
+                  <TextField name="surName" type="text" placeholder="Surname" />
                   <TextField
                     name="email"
                     type="email"
@@ -148,49 +165,63 @@ const Signin = () => {
 
                 <div className="my-4">
                   <p className="text-xs text-gray-500 mb-2">Date of birth</p>
-                  <div className="flex justify-between gap-2">
-                    <SelectField name="day" options={days} placeholder="Day" />
-                    <SelectField
-                      name="month"
-                      options={months.map((month, index) => ({
-                        value: index + 1,
-                        label: month,
-                      }))}
-                      placeholder="Month"
-                    />
-                    <SelectField
-                      name="year"
-                      options={years}
-                      placeholder="Year"
-                    />
+                  <div className="grid grid-cols-3 justify-between gap-2">
+                    <div>
+                      <SelectField
+                        name="day"
+                        options={days}
+                        placeholder="Day"
+                      />
+                      <ErrorMessage
+                        name="day"
+                        component="div"
+                        className="text-red-600 text-sm w-full"
+                      />
+                    </div>
+                    <div>
+                      <SelectField
+                        name="month"
+                        options={months.map((month, index) => ({
+                          value: index + 1,
+                          label: month,
+                        }))}
+                        placeholder="Month"
+                      />
+                      <ErrorMessage
+                        name="month"
+                        component="div"
+                        className="text-red-600 text-sm w-full"
+                      />
+                    </div>
+                    <div>
+                      <SelectField
+                        name="year"
+                        options={years}
+                        placeholder="Year"
+                      />
+                      <ErrorMessage
+                        name="year"
+                        component="div"
+                        className="text-red-600 text-sm w-full"
+                      />
+                    </div>
                   </div>
-                  <ErrorMessage
-                    name="day"
-                    component="div"
-                    className="text-red-600 text-sm"
-                  />
-                  <ErrorMessage
-                    name="month"
-                    component="div"
-                    className="text-red-600 text-sm"
-                  />
-                  <ErrorMessage
-                    name="year"
-                    component="div"
-                    className="text-red-600 text-sm"
-                  />
                 </div>
 
                 <div className="my-4">
                   <p className="text-xs text-gray-500 mb-2">Gender</p>
                   <div className="flex justify-between gap-2">
-                    {["Male", "Female", "Custom"].map((gender) => (
+                    {[
+                      { id: "male", name: "Male" },
+                      { id: "female", name: "Female" },
+                      { id: "custom", name: "Custom" },
+                    ].map((gender) => (
                       <label
-                        key={gender}
+                        key={gender.id}
                         className="flex items-center justify-between gap-2 w-[33%] rounded-md outline-2 ring-1 border-gray-300 p-2"
                       >
-                        {gender}
-                        <Field type="radio" name="gender" value={gender} />
+                        {gender.name}
+                        <Field type="radio" name="gender" value={gender.id} />
                       </label>
                     ))}
                   </div>
@@ -207,6 +238,16 @@ const Signin = () => {
                 >
                   Sign in
                 </button>
+                <div className="border-b-2 border-gray-200 mt-5" />
+                <p className="flex gap-1 mt-5 text-center text-nowrap mb-5">
+                  Already have account ?
+                  <Link
+                    className="text-black font-semibold hover:underline"
+                    to="/login"
+                  >
+                    Login
+                  </Link>
+                </p>
               </div>
 
               <p className="flex gap-1 mt-5 text-center text-nowrap mb-5">
